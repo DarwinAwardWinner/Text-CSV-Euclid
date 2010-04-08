@@ -1,0 +1,13 @@
+Package: libtext-csv-euclid-perl
+Version: 0.0.1-1
+Architecture: all
+Maintainer: Ryan Conrad Thompson <ryan@>
+Installed-Size: 72
+Depends: perl, perl-modules (>= 5.9.0)
+Section: perl
+Priority: optional
+Homepage: http://search.cpan.org/dist/Text-CSV-Euclid/
+Description: Provide a csv parser with options specified on the
+ Provide a csv parser with options specified on the
+ .
+ This description was automagically extracted from the module by dh-make-perl.
