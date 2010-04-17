@@ -9,8 +9,9 @@ use utf8;
 use version; our $VERSION = qv('0.0.1');
 
 use Text::CSV;
-
+use String::Escape qw(unprintable);
 use Getopt::Euclid;
+use Data::Alias;
 
 sub _get_csv_attrs_from_hash {
     # Lifted from Text::CSV's POD
@@ -30,16 +31,30 @@ sub _get_csv_attrs_from_hash {
     };
 
     my %hash;
-    if (ref $_[0] and not exists $_[1]) {
-        %hash = %{$_[0]};
-    }
-    else {
-        %hash = @_;
-    }
+
+    # Use %ARGV by default, but accept either hash or hashref
+    alias {
+        if (@_ == 0) {
+            # Default: use %ARGV
+            %hash = %ARGV
+                or croak "Error: unable to use %ARGV before options have been parsed.";
+        }
+        elsif (@_ == 1  and  ref $_[0] eq 'HASH') {
+            # Only one arg, and it's hashref, so use hashref
+            %hash = %{$_[0]};
+        }
+        else {
+            # Multiple args or first arg not a hashref, so assume @_
+            # is a hash
+            %hash = @_;
+        }
+    };
 
     my %ret = map {
-        (my $k = "--$_") =~ s{_}{-}g; # Convert e.g. 'quote_char' into '--quote-char'
-        $_ => $ARGV{$k} // $defaults->{$_}
+        my $key = $_;
+        (my $argv_key = "--$key") =~ s{_}{-}g; # Convert e.g. 'quote_char' into '--quotemeta-char'
+
+        $_ => unprintable($hash{$argv_key} // $defaults->{$key});
     } keys %$defaults;
 
     return \%ret;
