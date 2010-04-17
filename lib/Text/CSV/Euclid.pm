@@ -79,9 +79,11 @@ In your script:
 
     use Text::CSV::Euclid;
     my $csv = Text::CSV::Euclid->csv;
-    do_interesting_stuff_with($csv);
 
-To run your script:
+    # Now do interesting stuff that involves parsing CSV.
+    parse_CSV_files_using($csv);
+
+Now, to run your script:
 
     $ perl your-script.pl --sep-char="|" --quote-char="'"
 
