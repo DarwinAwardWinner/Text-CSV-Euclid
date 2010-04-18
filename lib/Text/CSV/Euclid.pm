@@ -6,7 +6,7 @@ use strict;
 use Carp;
 use utf8;
 
-use version; our $VERSION = qv('0.0.1');
+use version; our $VERSION = qv('0.9.0');
 
 use Text::CSV;
 use String::Escape qw(unprintable);
@@ -14,7 +14,7 @@ use Getopt::Euclid;
 use Data::Alias;
 
 sub _get_csv_attrs_from_hash {
-    # Lifted from Text::CSV's POD
+    # Same defaults as Text::CSV
     state $defaults = {
         quote_char          => '"',
         escape_char         => '"',
@@ -85,7 +85,7 @@ command-line
 
 =head1 VERSION
 
-This document describes Text::CSV::Euclid version 0.0.1
+This document describes Text::CSV::Euclid version 0.9.0.
 
 
 =head1 SYNOPSIS
@@ -100,12 +100,19 @@ In your script:
 
 Now, to run your script:
 
-    $ perl your-script.pl --sep-char="|" --quote-char="'"
+    $ perl your-script.pl --sep-char='|' --quote-char="'"
 
 Your script will read CSV files with vertical bars as separators and
 single quotes as quotation characters, instead of the defaults (which
-are commas and double quotes). All the options to Text::CSV->new
-should be supported. These are listed in the OPTIONS section.
+are commas and double quotes).
+
+    $ perl your-script.pl --sep-char='\t' --quote-char="="
+
+Your script will read CSV files with tabs characters as separators and
+equals signs as quotation characters.
+
+All the options to Text::CSV->new should be supported. These are
+listed in the OPTIONS section.
 
 =head1 OPTIONS
 
