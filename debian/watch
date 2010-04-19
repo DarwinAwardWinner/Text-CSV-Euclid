@@ -1,2 +1,0 @@
-version=3
-http://search.cpan.org/dist/Text-CSV-Euclid/   .*/Text-CSV-Euclid-v?(\d[\d.-]+)\.(?:tar(?:\.gz|\.bz2)?|tgz|zip)$
