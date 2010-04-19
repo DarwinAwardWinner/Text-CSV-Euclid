@@ -2,6 +2,11 @@ use strict;
 use warnings;
 use ExtUtils::MakeMaker;
 
+eval "use ExtUtils::MakeMaker::Coverage";
+if( !$@ ) {
+    print "Adding testcover target\n";
+}
+
 WriteMakefile(
     NAME                => 'Text::CSV::Euclid',
     AUTHOR              => 'Ryan C. Thompson <rct@thompsonclan.org>',
