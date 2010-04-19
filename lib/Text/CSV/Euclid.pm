@@ -12,6 +12,19 @@ use Text::CSV;
 use String::Escape qw(unprintable);
 use Getopt::Euclid;
 use Data::Alias;
+use Symbol qw( gensym );
+
+our $canary;
+
+BEGIN {
+    use Data::Dump qw(dump);
+    # Set up canary value in %ARGV that will be clobbered during the
+    # actual parsing step
+    $canary = gensym;
+    $ARGV{$canary}++;
+    #warn "%ARGV: " . dump(\%ARGV) . "\n";
+}
+
 
 sub _get_csv_attrs_from_hash {
     # Same defaults as Text::CSV
@@ -64,7 +77,8 @@ my $csv;
 
 sub csv {
     if (not $csv) {
-        if (not %ARGV) {
+        # If the canary still exsits in %ARGV, then parsing has not occurred
+        if (exists $ARGV{$canary}) {
             croak "Error: unable to create csv parser object before options have been parsed.";
         }
 
