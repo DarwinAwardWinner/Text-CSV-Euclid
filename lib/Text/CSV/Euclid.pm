@@ -100,13 +100,13 @@ In your script:
 
 Now, to run your script:
 
-    $ perl your-script.pl --sep-char='|' --quote-char="'"
+    $ perl your-script.pl --sep-char='|' --quote-char="'" --escape-char"'"
 
 Your script will read CSV files with vertical bars as separators and
 single quotes as quotation characters, instead of the defaults (which
 are commas and double quotes).
 
-    $ perl your-script.pl --sep-char='\t' --quote-char="="
+    $ perl your-script.pl --sep-char='\t' --quote-char="=" --escape-char"="
 
 Your script will read CSV files with tabs characters as separators and
 equals signs as quotation characters.
