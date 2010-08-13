@@ -7,9 +7,6 @@ package Text::CSV::Euclid;
 # ABSTRACT: [1-line description of module]
 
 use Carp;
-
-use version; our $VERSION = qv('0.9.0');
-
 use Text::CSV;
 use String::Escape qw(unprintable);
 use Getopt::Euclid;
