@@ -1,10 +1,12 @@
-package Text::CSV::Euclid;
-
-use feature ':5.10';
-use warnings;
 use strict;
-use Carp;
+use warnings;
+use v5.10;
 use utf8;
+
+package Text::CSV::Euclid;
+# ABSTRACT: [1-line description of module]
+
+use Carp;
 
 use version; our $VERSION = qv('0.9.0');
 
@@ -77,7 +79,7 @@ my $csv;
 
 sub csv {
     if (not $csv) {
-        # If the canary still exsits in %ARGV, then parsing has not occurred
+        # If the canary still exsits in %ARGV, then parsing has not yet occurred
         if (exists $ARGV{$canary}) {
             croak "Error: unable to create csv parser object before options have been parsed.";
         }
@@ -130,7 +132,10 @@ listed in the OPTIONS section.
 
 =head1 OPTIONS
 
-The following arguments all correspond to the arguments to Text::CSV->new:
+=head2 Options Affecting the Processing of CSV Data
+
+The following arguments all correspond to the arguments to
+Text::CSV->new:
 
 =over
 
