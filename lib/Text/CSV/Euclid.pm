@@ -4,7 +4,7 @@ use v5.10;
 use utf8;
 
 package Text::CSV::Euclid;
-# ABSTRACT: [1-line description of module]
+# ABSTRACT: Provide a csv parser with options specified on the command-line
 
 use Carp;
 use Text::CSV;
@@ -89,17 +89,6 @@ sub csv {
 
 1; # Magic true value required at end of module
 __END__
-
-=head1 NAME
-
-Text::CSV::Euclid - Provide a csv parser with options specified on the
-command-line
-
-
-=head1 VERSION
-
-This document describes Text::CSV::Euclid version 0.9.0.
-
 
 =head1 SYNOPSIS
 
