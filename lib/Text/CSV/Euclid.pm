@@ -158,11 +158,7 @@ Text::CSV->new:
 =back
 
 
-=head1 DESCRIPTION
-
-=for author to fill in:
-    Write a full description of the module and its features here.
-    Use subsections (=head2, =head3) as appropriate.
+=head1 MODULE DESCRIPTION
 
 This module is intended to be used from a script that deals with
 tabular data in files. Using this module will allow the user of your
@@ -171,15 +167,14 @@ passing command-line arguments to your script.
 
 =head1 INTERFACE
 
-=for author to fill in:
-    Write a separate section listing the public components of the modules
-    interface. These normally consist of either subroutines that may be
-    exported, or methods that may be called on objects belonging to the
-    classes provided by the module.
-
 The only method exported by the module is C<csv>. This method returns
 the CSV object created according to the command-line arguments that
-were passed to the script.
+were passed to the script. Note that this object is only created at
+the time of its first access, and not before. This means that your
+script may change elements of %ARGV as it wishes before calling
+C<csv>, and the returned CSV object will use the modified options. In
+particular, you can change the defaults in your script without using
+any BEGIN blocks or anything.
 
 =head1 DIAGNOSTICS
 
