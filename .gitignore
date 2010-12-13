@@ -1,5 +1,3 @@
-syntax:glob
-
 .build/
 Text-CSV-Euclid-*
 .build-timestamp
