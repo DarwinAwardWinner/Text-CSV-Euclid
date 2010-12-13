@@ -6,7 +6,7 @@ Text::CSV::Euclid - Provide a csv parser with options specified on the command-l
 
 =head1 VERSION
 
-version 0.103440
+version 0.103470
 
 =head1 SYNOPSIS
 
@@ -187,6 +187,10 @@ RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
 FAILURE OF THE SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
 SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
 SUCH DAMAGES.
+
+=head1 INSTALLATION
+
+See perlmodinstall for information and options on installing Perl modules.
 
 =head1 AUTHOR
 
